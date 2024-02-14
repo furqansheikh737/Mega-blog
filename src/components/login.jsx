@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { login as authLogin } from "../store/authSlices";
 import { Button, Input, Logo } from "./index"
@@ -49,7 +50,7 @@ const login = () => {
             <Input
               label="Email: "
               placeholder="Enter your email"
-              typr="email"
+              type="email"
               {...register("email", {
                 required: "true",
                 validate: {
@@ -59,9 +60,9 @@ const login = () => {
               })}
             />
             <Input
-              label="Empassword: "
+              label="Password: "
               placeholder="Enter your password"
-              typr="password"
+              type="password"
               {...register("password", {
                 required: "true",
               })}
