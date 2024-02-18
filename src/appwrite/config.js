@@ -1,4 +1,4 @@
-import conf from "../conf.js";
+import conf from "../conf/conf.js";
 import { Client, Databases, Storage, Query, ID } from "appwrite";
 
 export class Service {
@@ -51,7 +51,7 @@ export class Service {
         }
     }
 
-    async daletePost(slug) {
+    async deletePost(slug) {
         try {
             await this.databases.deleteDocument(
                 conf.appwriteDatabaseId,
