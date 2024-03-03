@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Container, Button } from '../components';
 import appwriteService from "../appwrite/config";
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { UseSelector, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import parse from 'html-react-parser';
 
 const Post = () => {
