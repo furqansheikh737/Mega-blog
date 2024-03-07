@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { login as authLogin } from "../store/authSlices";
-import { Button, Input, Logo } from "./index"
+import { Button, Input, Logo } from "./index.js"
 import { useDispatch } from 'react-redux';
 import { useForm } from "react-hook-form"
 import authService from '../appwrite/auth';
@@ -19,7 +19,7 @@ const Login = () => {
     try {
       const session = await authService.login(data)
       if (session) {
-        const userData = await authService.getCurretUser()
+        const userData = await authService.getCurrentUser()
         if (userData) {
           dispatch(authLogin(userData))
           navigate("/")
@@ -67,7 +67,7 @@ const Login = () => {
                 required: "true",
               })}
             />
-            <Button type="submit" className="w-full">Sign In</Button> 
+            <Button type="submit" className="w-full">Sign In</Button>
           </div>
         </form>
       </div>

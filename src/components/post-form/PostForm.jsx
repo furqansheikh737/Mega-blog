@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import { useForm } from "react-hook-form"
-import { Button, Input, Select, RTE } from "../index"
+import { Button, Input, Select, RTE } from "../index.js"
 import appwriteService from "../../appwrite/config"
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -10,7 +10,7 @@ const PostForm = ({ post }) => {
   const { register, handleSubmit, watch, setValue, getValues, control } = useForm({
     defaultValues: {
       tite: post?.title || "",
-      slug: post?.slug || "",
+      slug: post?.$id || "",
       content: post?.content || "",
       status: post?.status || "active"
     }
@@ -52,7 +52,7 @@ const PostForm = ({ post }) => {
     }
   }
 
-  const slugTranform = useCallback((value) => {
+  const slugTransform = useCallback((value) => {
     if (value && typeof value === "string")
       return value
         .trim()
@@ -67,7 +67,7 @@ const PostForm = ({ post }) => {
   React.useEffect(() => {
     const subscription = watch((value, {name}) => {
       if (name === "title") {
-        setValue("slug", slugTranform(value.tite, {shouldValidate: true}))
+        setValue("slug", slugTranform(value.tite), {shouldValidate: true})
       }
     })
 
