@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form"
 const Signup = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const [error, setError] = useState("") 
+    const [error, setError] = useState("")
     const { register, handleSubmit } = useForm()
 
     const create = async (data) => {
@@ -43,37 +43,37 @@ const Signup = () => {
                 </p>
                 {error && <p className='text-red-500 mt-8 text-center'>{error}</p>}
                 <form onSubmit={handleSubmit(create)} className='mt-8'>
-                <div className='space-y-5'>
-                    <Input
-                        label="Full Nmae"
-                        placeholder="Enter your full name"
-                        {...register("name", {
-                            required: true,
-                        })}
-                    />
-                    <Input
-                        label="Email: "
-                        placeholder="Enter your email"
-                        type="email"
-                        {...register("email", {
-                            required: "true",
-                            validate: {
-                                matchPatern: (value) => /^\w+([.~]?\w+)*@\w+([.~]?\w+)*(\\w{2,3})+5/.
-                                    test(value) || "Email address must be a valid address",
-                            }
-                        })}
-                    />
-                    <Input
-                        label="Password"
-                        type="password"
-                        placeholder="Entrer your password"
-                        {...register("password", {
-                            required: true
-                        })}
-                    />
-                    <Button className="w-full" type="submit">Create Account</Button>
-                </div>
-            </form>
+                    <div className='space-y-5'>
+                        <Input
+                            label="Full Nmae"
+                            placeholder="Enter your full name"
+                            {...register("name", {
+                                required: true,
+                            })}
+                        />
+                        <Input
+                            label="Email: "
+                            placeholder="Enter your email"
+                            type="email"
+                            {...register("email", {
+                                required: "true",
+                                validate: {
+                                    matchPatern: (value) => /^\w+([.~]?\w+)*@\w+([.~]?\w+)*(\\w{2,3})+5/.
+                                        test(value) || "Email address must be a valid address",
+                                }
+                            })}
+                        />
+                        <Input
+                            label="Password"
+                            type="password"
+                            placeholder="Entrer your password"
+                            {...register("password", {
+                                required: true
+                            })}
+                        />
+                        <Button className="w-full" type="submit">Create Account</Button>
+                    </div>
+                </form>
             </div>
         </div>
     )
